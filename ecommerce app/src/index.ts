@@ -4,7 +4,7 @@ import { Order } from "./services/Order";
 import Products from './DB/Products';
 import Users from './DB/Users';
 import User from './interface/User';
-let userId:number
+let userId=0
 
 function displayProduct(){
     
@@ -12,7 +12,8 @@ function displayProduct(){
 
 }
 function showCurrentUser(){
-    console.log(Users[userId])
+    const user=Users.find((user)=>user.id==userId)
+    console.log(user)
 }
 
 function setUser(){
@@ -30,7 +31,7 @@ function PlaceOrder(){
     Order(id,quantity,userId)
 }
 function displayReceipt(){
-    const index=Users.findIndex((val)=>val.id=userId)
+    const index=Users.findIndex((val)=>val.id==userId)
     
     if(index!=-1){
         const user:User=Users[index]
@@ -76,12 +77,12 @@ while(flag){
             break
         case '6':
             flag=false
+            break
         case '7':
             showCurrentUser()
+            break
         default:
             console.log("Enter valid input")
-
-
     }
     console.log("\n\n")
 

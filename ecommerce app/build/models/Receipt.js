@@ -14,7 +14,7 @@ class Receipt {
         this.userName = UserDetails.name;
         this.userContact = UserDetails.contact;
         this.userId = UserDetails.id;
-        const index = Users_1.default.findIndex((val) => val.id = this.userId);
+        const index = Users_1.default.findIndex((val) => val.id == this.userId);
         (_a = Users_1.default[index].receipt) === null || _a === void 0 ? void 0 : _a.push({
             productId: this.productId,
             productName: this.productName,

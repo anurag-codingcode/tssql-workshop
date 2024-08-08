@@ -8,12 +8,13 @@ const prompt = (0, prompt_sync_1.default)();
 const Order_1 = require("./services/Order");
 const Products_1 = __importDefault(require("./DB/Products"));
 const Users_1 = __importDefault(require("./DB/Users"));
-let userId;
+let userId = 0;
 function displayProduct() {
     Products_1.default.map((val) => console.log(`index: ${val.id} || product Name : ${val.name} || Product cost : ${val.cost} || Quantity available :${val.quantity}`));
 }
 function showCurrentUser() {
-    console.log(Users_1.default[userId]);
+    const user = Users_1.default.find((user) => user.id == userId);
+    console.log(user);
 }
 function setUser() {
     userId = parseInt(prompt("Enter User Id"));
@@ -28,7 +29,7 @@ function PlaceOrder() {
 }
 function displayReceipt() {
     var _a;
-    const index = Users_1.default.findIndex((val) => val.id = userId);
+    const index = Users_1.default.findIndex((val) => val.id == userId);
     if (index != -1) {
         const user = Users_1.default[index];
         (_a = user.receipt) === null || _a === void 0 ? void 0 : _a.map((val, ind) => {
@@ -71,8 +72,10 @@ while (flag) {
             break;
         case '6':
             flag = false;
+            break;
         case '7':
             showCurrentUser();
+            break;
         default:
             console.log("Enter valid input");
     }

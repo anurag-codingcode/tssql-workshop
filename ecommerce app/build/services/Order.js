@@ -9,12 +9,17 @@ const Receipt_1 = __importDefault(require("../models/Receipt"));
 const Users_1 = __importDefault(require("../DB/Users"));
 function Order(index, quantity, UserId) {
     const p = Products_1.default.findIndex((val) => val.id == index);
-    const u = Users_1.default.findIndex((val) => val.id = UserId);
+    const u = Users_1.default.findIndex((val) => val.id == UserId);
     if (p != -1 && u != -1) {
-        Products_1.default[p].quantity -= quantity;
-        const reciptClass = new Receipt_1.default(Products_1.default[p], quantity, Users_1.default[u]);
-        console.log("Done Placed Order");
-        return reciptClass;
+        if (Products_1.default[p].quantity - quantity >= 0) {
+            Products_1.default[p].quantity -= quantity;
+            const reciptClass = new Receipt_1.default(Products_1.default[p], quantity, Users_1.default[u]);
+            console.log("Done Placed Order");
+            return reciptClass;
+        }
+        else {
+            console.log("insuficient items");
+        }
     }
     else {
         console.log("Invalid product ID");

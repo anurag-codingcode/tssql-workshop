@@ -21,7 +21,7 @@ export default class Receipt {
         this.userContact = UserDetails.contact
         this.userId = UserDetails.id
 
-        const index = Users.findIndex((val) => val.id = this.userId)
+        const index = Users.findIndex((val) => val.id == this.userId)
     
         Users[index].receipt?.push({
             productId: this.productId,
