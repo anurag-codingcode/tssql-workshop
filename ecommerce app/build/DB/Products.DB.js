@@ -1,6 +1,6 @@
-import Product from "../interface/Product";
-
-let Products: Product[] =  [
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+let Products = [
     { id: 1, name: "Laptop", quantity: 30, cost: 1000 },
     { id: 2, name: "Smartphone", quantity: 50, cost: 700 },
     { id: 3, name: "Headphones", quantity: 45, cost: 150 },
@@ -12,5 +12,4 @@ let Products: Product[] =  [
     { id: 9, name: "Camera", quantity: 10, cost: 500 },
     { id: 10, name: "Printer", quantity: 13, cost: 120 },
 ];
-
-export default Products;
+exports.default = Products;

@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "prompt-sync": "^4.2.0",
+    "winston": "^3.14.0"
+  },
+  "devDependencies": {
+    "@types/prompt-sync": "^4.2.3"
+  }
+}
